@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     ultimoBrano()
-    
+    fetch('https://striveschool-api.herokuapp.com/api/deezer/artist/300')
+        .then((response)=>{
+            response.json().then((data)=>{
+                console.log(data)
+            })
+        })
 });
 
 let artista = ['Iron Maiden', 'Metallica', 'Dream Theater', 'Pink Floyd', 'Queen', 'Gianni Celeste', 'Squallor']
