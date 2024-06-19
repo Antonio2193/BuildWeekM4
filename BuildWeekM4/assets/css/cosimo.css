@@ -1,0 +1,36 @@
+/* GENERAL */
+:root {
+  --spotify-green: #1dcf5b
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.gap-20 {
+  gap:20px;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(270deg, #222222, #0f0f0f);
+}
+
+/* INDEX */
+label.absolute {
+  top:10px;
+  right: 10px;
+}
+
+#six-random-album .album {
+  background-color: #2C2C2C;
+}
+
+/* ARTIST */
+
+
+/* ALBUM */
