@@ -89,3 +89,5 @@ const canzoniSingole = async (title, name) => {
 window.onload = async () => {
   await album();
 };
+
+// ciao
