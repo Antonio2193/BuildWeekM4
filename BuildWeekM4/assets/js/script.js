@@ -1,30 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-    ultimoBrano()
-    fetch('https://striveschool-api.herokuapp.com/api/deezer/artist/300')
-        .then((response)=>{
-            response.json().then((data)=>{
-                console.log(data)
-            })
-        })
+    pescaArtista();
 });
 
-let artista = ['Iron Maiden', 'Metallica', 'Dream Theater', 'Pink Floyd', 'Queen', 'Gianni Celeste', 'Squallor']
-let artistaRandom = (Math.round((Math.random()*artista.length)));
-let artistaIndex = artista[artistaRandom]
-
-
-function ultimoBrano(){
+function ultimoBrano(artistaIndex) {
     fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artistaIndex}`)
-        .then((response)=>{
-            response.json().then((data)=>{
-            });
-        }) 
-        
-    .catch((err)=>{console.log("errore"+ err);});
-    }
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            
+        })
+        .catch((err) => {
+            console.log("errore: " + err);
+        });
+}
 
-    
+function pescaArtista() {
+    // Genera un numero casuale tra 1 e 150
+    const idRandom = Math.floor(Math.random() * 150) + 1;
 
-
-
-
+    fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${idRandom}`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            // Passiamo il nome dell'artista alla funzione ultimoBrano
+            ultimoBrano(data.name);
+        })
+        .catch((err) => {
+            console.log("errore: " + err);
+        });
+}
