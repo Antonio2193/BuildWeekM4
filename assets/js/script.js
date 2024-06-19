@@ -29,6 +29,7 @@ function pescaArtista() {
             console.log(data);
             // Passiamo il nome dell'artista alla funzione ultimoBrano
             ultimoBrano(data.name);
+            buonasera(data.name);
 
         })
         .catch((err) => {
@@ -36,3 +37,16 @@ function pescaArtista() {
         });
 }
 
+function buonasera(artistaIndex) {
+    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artistaIndex}`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            
+        })
+        .catch((err) => {
+            console.log("errore: " + err);
+        });
+    }
