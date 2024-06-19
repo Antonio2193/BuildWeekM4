@@ -14,7 +14,7 @@ function ultimoBrano(artistaIndex) {
         .catch((err) => {
             console.log("errore: " + err);
         });
-}
+
 
 function pescaArtista() {
     // Genera un numero casuale tra 1 e 150
@@ -28,8 +28,10 @@ function pescaArtista() {
             console.log(data);
             // Passiamo il nome dell'artista alla funzione ultimoBrano
             ultimoBrano(data.name);
+
         })
         .catch((err) => {
             console.log("errore: " + err);
         });
 }
+
