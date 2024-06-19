@@ -26,7 +26,7 @@ function pescaArtista() {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
+            //console.log(data);
             // Passiamo il nome dell'artista alla funzione ultimoBrano
             ultimoBrano(data.name);
             buonasera(data.name);
