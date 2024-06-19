@@ -40,6 +40,14 @@
   background-color: black;
   border-radius: 250px;
 }
+
+.playIco{
+  font-size: 50px;
+  color: #1dcf5b!Important;
+  background-color: none;
+  border-radius: 250px;
+}
+
 .sotto .elenco .base {
   color: #a2adb3;
   border-bottom: 1px solid #a2adb3;
@@ -347,4 +355,9 @@ input[type="range"]::-webkit-slider-runnable-track:hover {
 
 .ore {
   margin-right: 3px;
+}
+
+#random-album img {
+  width: 20%;
+  padding: 0.5rem;
 }
