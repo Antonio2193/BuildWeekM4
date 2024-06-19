@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pescaArtista();
 });
 
+
 function ultimoBrano(artistaIndex) {
     fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artistaIndex}`)
         .then((response) => {
@@ -14,6 +15,7 @@ function ultimoBrano(artistaIndex) {
         .catch((err) => {
             console.log("errore: " + err);
         });
+
 }
 
 function pescaArtista() {
@@ -28,8 +30,10 @@ function pescaArtista() {
             console.log(data);
             // Passiamo il nome dell'artista alla funzione ultimoBrano
             ultimoBrano(data.name);
+
         })
         .catch((err) => {
             console.log("errore: " + err);
         });
 }
+
