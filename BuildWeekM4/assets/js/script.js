@@ -37,9 +37,11 @@ function ultimoBrano(artistaIndex) {
     })
     .then((data) => {
       const canzoneRandom = Math.floor(Math.random() * 25);
+      let contenitoreArtista = document.getElementById("last-song");
+      contenitoreArtista.innerHTML = ''
       data.data.forEach((element, i) => {
         if (i === canzoneRandom) {
-          let contenitoreArtista = document.getElementById("last-song");
+          
           contenitoreArtista.innerHTML = `<img src="${element.album.cover_medium}" alt="Cover Album">
                                                   <div class="first-song-wrapper d-flex flex-column  px-3">
                                                     <p class="">${element.album.title}</p>
@@ -61,7 +63,7 @@ function ultimoBrano(artistaIndex) {
 }
 
 async function buonasera() {
-  const albumRandom = document.getElementById('random-album');
+  const albumRandom = document.getElementById('six-random-album');
   albumRandom.innerHTML = '';
   for (let i = 0; i < 6; i++) {
     try {
