@@ -39,11 +39,6 @@ label.absolute {
   right: 10px;
 }
 
-#first-song {
-  background: linear-gradient(45deg, #000000, #202020 );
-}
-
-#six-random-album .album {
   background-color: #2C2C2C;
 }
 
