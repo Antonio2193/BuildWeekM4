@@ -4,30 +4,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function pescaArtista() {
-    const idRandom = Math.floor(Math.random() * 150) + 1;
+  const idRandom = Math.floor(Math.random() * 150) + 1;
 
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${idRandom}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        ultimoBrano(data.name);
-      })
-      .catch((err) => {
-        console.log("errore: " + err);
-      });
+  fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${idRandom}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      ultimoBrano(data.name);
+    })
+    .catch((err) => {
+      console.log("errore: " + err);
+    });
 }
 
 function getArtista() {
-    const idRandom = Math.floor(Math.random() * 150) + 1;
+  const idRandom = Math.floor(Math.random() * 150) + 1;
 
-    return fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${idRandom}`)
-      .then((response) => {
-        return response.json();
-      })
-      .catch((err) => {
-        console.log("errore: " + err);
-      });
+  return fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${idRandom}`)
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log("errore: " + err);
+    });
 }
 
 function ultimoBrano(artistaIndex) {
@@ -61,30 +61,29 @@ function ultimoBrano(artistaIndex) {
 }
 
 async function buonasera() {
-    const albumRandom = document.getElementById('random-album');
-    albumRandom.innerHTML = '';  // Clear the existing content
+  const albumRandom = document.getElementById('random-album');
+  albumRandom.innerHTML = '';
+  for (let i = 0; i < 6; i++) {
+    try {
+      const artist = await getArtista();
+      console.log(`Artista ${i + 1}: ${artist.name} (ID: ${artist.id})`);  // Log the artist details
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artist.name}`);
+      const data = await response.json();
 
-    for (let i = 0; i < 6; i++) {
-        try {
-            const artist = await getArtista();
-            console.log(`Artista ${i + 1}: ${artist.name} (ID: ${artist.id})`);  // Log the artist details
-            const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artist.name}`);
-            const data = await response.json();
+      if (data.data.length > 0) {
+        // Seleziona un elemento casuale dall'array data.data
+        const randomIndex = Math.floor(Math.random() * data.data.length);
+        const element = data.data[randomIndex];
 
-            if (data.data.length > 0) {
-                // Seleziona un elemento casuale dall'array data.data
-                const randomIndex = Math.floor(Math.random() * data.data.length);
-                const element = data.data[randomIndex];
+        console.log(`Album ${i + 1}: ${element.album.title} (Artist: ${element.artist.name})`);
 
-                console.log(`Album ${i + 1}: ${element.album.title} (Artist: ${element.artist.name})`);  // Log the album details
-
-                albumRandom.innerHTML += `<div class="album d-flex p-0">
+        albumRandom.innerHTML += `<div class="album d-flex p-0">
                     <img src=${element.album.cover_medium} alt="Cover Album">
                     <p>${element.album.title}</p>
                   </div>`;
-            }
-        } catch (err) {
-            console.log("errore: " + err);
-        }
+      }
+    } catch (err) {
+      console.log("errore: " + err);
     }
+  }
 }
