@@ -66,7 +66,7 @@ async function buonasera() {
   for (let i = 0; i < 6; i++) {
     try {
       const artist = await getArtista();
-      console.log(`Artista ${i + 1}: ${artist.name} (ID: ${artist.id})`);  // Log the artist details
+      console.log(`Artista ${i + 1}: ${artist.name} (ID: ${artist.id})`); 
       const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artist.name}`);
       const data = await response.json();
 
