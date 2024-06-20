@@ -89,3 +89,14 @@ const canzoniSingole = async (title, name) => {
 window.onload = async () => {
   await album();
 };
+
+/* da scommentare quando si unisce alla */
+
+/* window.onload = async () => {
+  let url = new URLSearchParams(location.search);
+  let id = url.get("id");
+  if (!id) {
+    window.location.assign("./homepage.html");
+  }
+  await album(id);
+}; */
