@@ -24,7 +24,7 @@
           <div class="nav">
             <ul>
               <div><i class="fa-solid fa-house"></i><a href="#">HOME</a></div>
-              <div><i class="fa-solid fa-magnifying-glass"></i><a href="">CERCA</a></div>
+              <div><i class="fa-solid fa-magnifying-glass"></i><a href="./search.html">CERCA</a></div>
               <div><i class="fa-solid fa-book"></i><a href="">La tua libreria</a></div>
             </ul>
           </div>
@@ -85,7 +85,7 @@
           style="width: 270px; background-color: black"
         >
           <div class="offcanvas-header" data-bs-theme="dark">
-            <h3 class="offcanvas-title" id="offcanvasRightLabel">Attività  amici</h3>
+            <h3 class="offcanvas-title" id="offcanvasRightLabel">Attività  amici</h3>
             <i class="fa-solid fa-user-plus"></i>
             <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
@@ -134,30 +134,35 @@
       </div>
     </div>
 
-    <nav class="navbar fixed-bottom playlist-bar barra-sotto d-flex justify-content-around align-items-center">
-      <div class="singoli row align-items-center text-white"></div>
-      <div class="d-flex justify-content-around align-items-center">
-        <i class="fa-solid fa-shuffle"></i>
-        <i class="fa-solid fa-backward-step"></i>
-        <i class="bi bi-play-circle-fill" id="unico-puls"></i>
-        <i class="fa-solid fa-forward-step"></i>
-        <i class="fa-solid fa-repeat"></i>
+    <nav class="navbar fixed-bottom playlist-bar barra-sotto">
+      <div class="singoli d-flex align-items-center ps-4 text-white"></div>
+      <div class="d-flex flex-column justify-content-between">
+        <div class="d-flex align-items-center text-center pulsanti">
+          <i class="fa-solid fa-shuffle"></i>
+          <i class="fa-solid fa-backward-step"></i>
+          <i class="bi bi-play-circle-fill text-white fs-2" id="unico-puls"></i>
+          <i class="fa-solid fa-forward-step"></i>
+          <i class="fa-solid fa-repeat"></i>
+        </div>
+        <input
+          style="width: 100%"
+          type="range"
+          class="form-range p-0 m-0"
+          min="0"
+          max="10"
+          step="0.5"
+          id="customRange3"
+        />
       </div>
-      <div class="d-flex justify-content-around align-items-center">
+      <div class="volume-canzone">
         <i class="fa-solid fa-microphone"></i>
         <i class="fa-solid fa-bars"></i>
         <i class="fa-solid fa-computer"></i>
         <i class="fa-solid fa-volume-high"></i>
+        <input style="width: 60px" type="range" class="form-range" min="0" max="10" step="0.5" id="customRange4" />
         <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
       </div>
     </nav>
-
-    <div class="navmobile">
-      <img src="./black.webp" alt="" />
-      <i class="fa-solid fa-computer pc"></i>
-      <i class="bi bi-play-fill"></i>
-      <i class="bi bi-heart"></i>
-    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
