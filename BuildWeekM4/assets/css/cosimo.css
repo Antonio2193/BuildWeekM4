@@ -45,7 +45,9 @@ label.absolute {
 
 #six-random-album .album {
   background-color: #2C2C2C;
+  max-width: 320px;
 }
+
 
 /* ARTIST */
 .page-container {
@@ -74,7 +76,7 @@ label.absolute {
 
 
 /* ANTONIO PROVA */
-
+/* 
 .album{
   width: 150px;
-}
+} */
