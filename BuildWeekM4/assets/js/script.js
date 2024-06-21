@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   pescaArtista();
   buonasera();
+  dailyMix();
 });
 
 function pescaArtista() {
@@ -83,6 +84,38 @@ async function buonasera() {
         albumRandom.innerHTML += `<div class="album d-flex p-0 mb-2 rounded-1 align-items-center col overflow-hidden">
                     <img src=${element.album.cover_medium} width="50" alt="Cover Album" class="me-2">
                     <p class="m-0 ps-2">${element.album.title}</p>
+                  </div>`;
+      }
+    } catch (err) {
+      console.log("errore: " + err);
+    }
+  }
+}
+
+
+
+
+async function dailyMix() {
+  const albumRandom = document.getElementById('generi-box-wrapper');
+  albumRandom.innerHTML = '';
+  for (let i = 0; i < 5; i++) {
+    try {
+      const artist = await getArtista();
+      console.log(`Artista ${i + 1}: ${artist.name} (ID: ${artist.id})`); 
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artist.name}`);
+      const data = await response.json();
+
+      if (data.data.length > 0) {
+        // Seleziona un elemento casuale dall'array data.data
+        const randomIndex = Math.floor(Math.random() * data.data.length);
+        const element = data.data[randomIndex];
+
+        console.log(`Album ${i + 1}: ${element.album.title} (Artist: ${element.artist.name})`);
+
+        albumRandom.innerHTML += ` <div id ="generi-box" class="col">
+                    <img src=${element.album.cover_medium} width="100" alt="Cover Album">
+                    <p class="title">${element.album.title}</p>
+                    p class="">${element.artist.name}</p>
                   </div>`;
       }
     } catch (err) {
