@@ -2,6 +2,7 @@ const Url = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 const UrlSong = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
 const fetchQuery = async (query) => {
+  console.log(query)
   const album = await fetch(`${Url}${query}`);
   const {
     id,
@@ -46,7 +47,7 @@ const fetchQuery = async (query) => {
 };
 
 const album = async () => {
-  const canzoni = await fetchQuery("6893935");
+  const canzoni = await fetchQuery(id);
   console.log(canzoni);
   const divSotto = document.querySelector(".elenco");
   for (let i = 0; i < canzoni.length; i++) {
@@ -90,13 +91,19 @@ window.onload = async () => {
   await album();
 };
 
+
+const parametro = new URLSearchParams(location.search)
+let id = parametro.get('id')
+
+
+
 /* da scommentare quando si unisce alla */
 
-/* window.onload = async () => {
-  let url = new URLSearchParams(location.search);
-  let id = url.get("id");
-  if (!id) {
-    window.location.assign("./homepage.html");
-  }
-  await album(id);
-}; */
+// window.onload = async () => {
+//   let url = new URLSearchParams(location.search);
+//   let id = url.get("id");
+//   if (!id) {
+//     window.location.assign("./index.html");
+//   }
+//   await album(id);
+// }; 
