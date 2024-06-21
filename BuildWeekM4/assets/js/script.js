@@ -46,9 +46,9 @@ function ultimoBrano(artistaIndex) {
           contenitoreArtista.innerHTML = `<a href="./album.html?id=${element.album.id}"><img src="${element.album.cover_medium}" alt="Cover Album"></a>
                                                   <div class="first-song-wrapper d-flex flex-column  px-3">
 
-                                                    <a href="./album.html?id=${element.album.id}"<p>${element.album.title}</p>
+                                                    <a href="./album.html?id=${element.album.id}"<p>${element.album.title}</p></a>
                                                     <h1>${element.title_short}</h1>
-                                                    <p class="song-subtitle">${element.artist.name}/i</p>
+                                                    <a href="./artist.html?id=${element.artist.id}"><p class="song-subtitle">${element.artist.name}</p>
                                                     <p class="song-subtitle">Ascolta l'ultimo singolo di ${element.artist.name}</p>
                                                     <div class="btn-wrapper d-flex align-items-center gap-20">
                                                         <a href="#" class="btn rounded-pill px-4 text-dark bg-spotify"><small>Play</small></a>
@@ -92,9 +92,6 @@ async function buonasera() {
     }
   }
 }
-
-
-
 
 async function dailyMix() {
   const albumRandom = document.getElementById('generi-box-wrapper');
