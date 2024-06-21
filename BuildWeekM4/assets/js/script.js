@@ -49,11 +49,6 @@ function ultimoBrano(artistaIndex) {
                                                     <a href="./album.html?id=${element.album.id}"<p>${element.album.title}</p>
                                                     <h1>${element.title_short}</h1>
                                                     <p class="song-subtitle">${element.artist.name}/i</p>
-
-                                                    <p class="">${element.album.title}</p>
-                                                    <h1 class="">${element.title_short}</h1>
-                                                    <p class="song-subtitle">${element.artist.name}</p>
-
                                                     <p class="song-subtitle">Ascolta l'ultimo singolo di ${element.artist.name}</p>
                                                     <div class="btn-wrapper d-flex align-items-center gap-20">
                                                         <a href="#" class="btn rounded-pill px-4 text-dark bg-spotify"><small>Play</small></a>
