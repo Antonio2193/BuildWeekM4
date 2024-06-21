@@ -43,10 +43,10 @@ function ultimoBrano(artistaIndex) {
       data.data.forEach((element, i) => {
         if (i === canzoneRandom) {
           
-          contenitoreArtista.innerHTML = `<img src="${element.album.cover_medium}" alt="Cover Album">
+          contenitoreArtista.innerHTML = `<a href="./album.html?id=${element.album.id}"><img src="${element.album.cover_medium}" alt="Cover Album"></a>
                                                   <div class="first-song-wrapper d-flex flex-column  px-3">
-                                                    <p class="">${element.album.title}</p>
-                                                    <h1 class="">${element.title_short}</h1>
+                                                    <a href="./album.html?id=${element.album.id}"<p>${element.album.title}</p>
+                                                    <h1>${element.title_short}</h1>
                                                     <p class="song-subtitle">${element.artist.name}/i</p>
                                                     <p class="song-subtitle">Ascolta l'ultimo singolo di ${element.artist.name}</p>
                                                     <div class="btn-wrapper d-flex align-items-center gap-20">
