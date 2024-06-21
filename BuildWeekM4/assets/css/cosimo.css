@@ -43,17 +43,51 @@ label.absolute {
   background: linear-gradient(45deg, #000000, #202020 );
 }
 
+.index-wrap{
+  height: 100vh;
+}
+
 #six-random-album .album {
   background-color: #2C2C2C;
-  max-width: 320px;
+  max-width: 90%;
+}
 
-  
+@media screen and (max-width:430px) {
+  #first-song {
+    flex-direction:column;
+  }
+  .first-song-wrapper p:first-child{
+    margin-top:20px;
+  }
+
+  label.absolute {display: none;}
+
+  .navmobile {
+    position: fixed;
+    bottom:0
+  }
+
+  #six-random-album {
+    flex-direction: column;
+  }
+
+  #six-random-album .album {
+    width: 100%;
+  }
+
+  .sidebar {display: none;}
+ 
+  .generi-box img {
+    width: 100%!important;
+  }
+
 }
 
 
 /* ARTIST */
 .page-container {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .hero-artist {
