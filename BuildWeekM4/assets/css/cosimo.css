@@ -86,7 +86,7 @@ label.absolute {
 }
 
 @media screen and (min-width:768px) {
-  .generi-box:last-child {
+  #generi-box-wrapper .generi-box:last-child {
     margin-bottom: 100px;
   }
 }
