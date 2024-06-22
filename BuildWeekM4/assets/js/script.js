@@ -103,7 +103,7 @@ async function dailyMix() {
         // Seleziona un elemento casuale dall'array data.data
         const randomIndex = Math.floor(Math.random() * data.data.length);
         const element = data.data[randomIndex];
-        albumRandom.innerHTML += ` <div id ="generi-box" class="col">
+        albumRandom.innerHTML += ` <div class="col generi-box">
                     <img src=${element.album.cover_medium} width="100" alt="Cover Album">
                     <p class="title">${element.album.title}</p>
                     <p class="desc">${element.artist.name}</p>
