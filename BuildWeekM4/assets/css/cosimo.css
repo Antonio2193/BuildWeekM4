@@ -110,12 +110,12 @@ label.absolute {
     padding: 2rem!important;
   }
 
-  main .sopra img {
+  main .sopra .foto-album img {
     margin-bottom: 20px;
   }
 
   main .sopra .titolo-album{
-    font-size: 20px;
+    font-size: 40px!important;
   }
 
   main .sopra .ms-4 {
