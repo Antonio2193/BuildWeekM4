@@ -48,8 +48,7 @@ function song(nome){
         const divSotto = document.querySelector(".elenco");
         canzoni.forEach((element, i)  => {
         divSotto.innerHTML += `
-      <div class="canzoni row p-0 align-items-center m-0 mb-3 pe-4" 
-      onclick="canzoniSingole('${element.title}','${element.artist.name}')">
+      <div class="canzoni row p-0 align-items-center m-0 mb-3 pe-4">
       <div class="col-1 p-0 text-center">${i + 1}</div>
       <div class="col-5 p-0 text-start">
         <span class="fw-bold text-white">${element.title}</span>
