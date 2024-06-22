@@ -104,21 +104,21 @@ label.absolute {
 /* ALBUM */
 
 @media screen and (max-width:430px){
-  main.sopra {
+  main .sopra {
     flex-direction: column!important;
     align-items: start!important;
     padding: 2rem!important;
   }
 
-  main.sopra img {
+  main .sopra img {
     margin-bottom: 20px;
   }
 
-  main.sopra .titolo-album{
+  main .sopra .titolo-album{
     font-size: 20px;
   }
 
-  main.sopra .ms-4 {
+  main .sopra .ms-4 {
     margin: 0!important;
   }
 }
