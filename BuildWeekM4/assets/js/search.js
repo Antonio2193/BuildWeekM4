@@ -1,64 +1,63 @@
 const Url = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
 const ricerca = async (query) => {
-  const song = await fetch(`${Url}${query}`);
-  const { data } = await song.json();
-  return data;
+  try {
+    const response = await fetch(`${Url}${query}`);
+    if (!response.ok) throw new Error("Errore nel fetch dei dati");
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Errore:", error);
+  }
+};
+
+const createCard = (imgSrc, title, artistName, artistId, isAlbum) => {
+  const card = `
+    <div class="card album-cards ${isAlbum ? 'justify-content-between text-center' : 'd-flex flex-row justify-content-between'}" style="width: ${isAlbum ? '16rem; height: 20rem;' : '20rem; height: 6rem;'}" ${isAlbum ? '' : `onclick="songId(${artistId})"`}>
+      <img src="${imgSrc}" class="card-img-top ${isAlbum ? '' : 'foto-canzone'}" alt="Foto album">
+      <div class="card-body ${isAlbum ? '' : 'd-flex flex-column'}">
+        <h5 class="card-title fs-6 fw-bold ">${title}</h5>          
+        <a href="./artist.html?id=${artistId}" class="card-text">${artistName}</a>
+      </div>
+    </div>`;
+  return card;
 };
 
 const music = async (name) => {
   console.log(name);
   const searchMusic = await ricerca(name);
-  /* console.log(searchMusic); */
-  if (name) {
+  if (name && searchMusic && searchMusic.length > 0) {
     const divArtista = document.querySelector(".artista");
-    divArtista.innerHTML += `
+    divArtista.innerHTML = `
       <div class="text-center">
         <img src="${searchMusic[0].artist.picture_xl}" alt="Foto artista" class="foto" />
         <h6 class="mt-3 fw-bold">${searchMusic[0].artist.name}</h6>
-      </div>
-      `;
+      </div>`;
+
+    const divAlbum = document.querySelector(".album");
+    const divCanzoni = document.querySelector(".canzoni");
+    divAlbum.innerHTML = '';
+    divCanzoni.innerHTML = '';
 
     searchMusic.forEach((singolaSearch) => {
-      const divAlbum = document.querySelector(".album");
-      divAlbum.innerHTML += `
-        <div class="card album-cards d-flex flex-row justify-content-between" style="width: 20rem; height: 6rem;" onclick="songId(${singolaSearch.album.id})">
-            <img src="${singolaSearch.album.cover_xl}" class="card-img-top foto-canzone" alt="Foto album>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fs-6 fw-bold ">${singolaSearch.album.title}</h5>          
-            <a href="./artist.html?id=${singolaSearch.artist.id}"class="card-text">${singolaSearch.artist.name}</a>
-          </div>
-        </div>
-        `;
-
-      const divCanzoni = document.querySelector(".canzoni");
-      divCanzoni.innerHTML += `
-        <div class="card album-cards justify-content-between text-center" style="width: 16rem; height: 20rem;">
-            <img src="${singolaSearch.album.cover_xl}" class="card-img-top" alt="Foto album>
-          <div class="card-body">
-            <h5 class="card-title fs-6 fw-bold ">${singolaSearch.album.title}</h5>          
-            <a href="./artist.html?id=${singolaSearch.artist.id}"class="card-text">${singolaSearch.artist.name}</a>
-          </div>
-        </div>
-        `;
+      divAlbum.innerHTML += createCard(singolaSearch.album.cover_xl, singolaSearch.album.title, singolaSearch.artist.name, singolaSearch.artist.id, false);
+      divCanzoni.innerHTML += createCard(singolaSearch.album.cover_xl, singolaSearch.album.title, singolaSearch.artist.name, singolaSearch.artist.id, true);
     });
   }
 };
 
-function songId(id) {
-  id.onclick = location.assign(`./album.html?id=${id}`);
-}
+const songId = (id) => {
+  location.assign(`./album.html?id=${id}`);
+};
 
 const valoreInput = async () => {
   const input = document.getElementById("cerca");
   const content = input.value;
   window.localStorage.clear();
-  /* localStorage.setItem("Text input", content); */
-
   await music(content);
 };
 
 window.onload = async () => {
   const searchHistory = localStorage.getItem("Text input");
-  await music(searchHistory);
+  if (searchHistory) await music(searchHistory);
 };
