@@ -57,7 +57,7 @@ function ultimoBrano(artistaIndex) {
                                                         <a href="#"><i class="bi bi-three-dots text-white"></i></a>
                                                     </div>
                                                   </div>
-                                                  <label class="absolute py-1 px-3 bg-black rounded-2 fs-6 ">Metti il crack</label>`;
+                                                  <label class="absolute py-1 px-3 bg-black rounded-2 fs-6 ">Nascondi annunci</label>`;
         }
       });
     })
