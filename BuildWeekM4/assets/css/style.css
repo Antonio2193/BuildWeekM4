@@ -887,3 +887,6 @@ input[type="range"]::-webkit-slider-runnable-track:hover {
   cursor: pointer;
   color: green;
 }
+.btn:hover {
+  background-color: white;
+}

@@ -50,10 +50,10 @@ function ultimoBrano(artistaIndex) {
                                                     <a href="./album.html?id=${element.album.id}"<p>${element.album.title}</p></a>
                                                     <h1>${element.title_short}</h1>
                                                     <a href="./artist.html?id=${element.artist.id}"><p class="song-subtitle">${element.artist.name}</p>
-                                                    <p class="song-subtitle">Ascolta l'ultimo singolo di ${element.artist.name}</p>
+                                                    <a href="./artist.html?id=${element.artist.id}"><p class="song-subtitle">Ascolta l'ultimo singolo di ${element.artist.name}</p></a>
                                                     <div class="btn-wrapper d-flex align-items-center gap-20">
                                                         <a href="#" class="btn rounded-pill px-4 text-dark bg-spotify"><small>Play</small></a>
-                                                        <a href="#" class="btn rounded-pill border px-4 text-white"><small>Salva</small></a>
+                                                        <a href="#" class="btn rounded-pill border px-4"><small>Salva</small></a>
                                                         <a href="#"><i class="bi bi-three-dots text-white"></i></a>
                                                     </div>
                                                   </div>
@@ -80,8 +80,8 @@ async function buonasera() {
         const randomIndex = Math.floor(Math.random() * data.data.length);
         const element = data.data[randomIndex];
         albumRandom.innerHTML += `<div class="album d-flex p-0 mb-2 rounded-1 align-items-center col overflow-hidden">
-                    <img src=${element.album.cover_medium} width="50" alt="Cover Album" class="me-2">
-                    <p class="m-0 ps-2">${element.album.title}</p>
+                    <a href="./album.html?id=${element.album.id}"><img src=${element.album.cover_medium} width="50" alt="Cover Album" class="me-2"></a>
+                    <a href="./album.html?id=${element.album.id}"><p class="m-0 ps-2">${element.album.title}</p></a>
                   </div>`;
       }
     } catch (err) {
@@ -104,9 +104,9 @@ async function dailyMix() {
         const randomIndex = Math.floor(Math.random() * data.data.length);
         const element = data.data[randomIndex];
         albumRandom.innerHTML += ` <div class="col generi-box">
-                    <img src=${element.album.cover_medium} width="100" alt="Cover Album">
-                    <p class="title">${element.album.title}</p>
-                    <p class="desc">${element.artist.name}</p>
+                    <a href="./album.html?id=${element.album.id}"><img src=${element.album.cover_medium} width="100" alt="Cover Album"></a>
+                    <a href="./album.html?id=${element.album.id}"><p class="title">${element.album.title}</p></a>
+                    <a href="./artist.html?id=${element.artist.id}"><p class="desc">${element.artist.name}</p></a>
                   </div>`;
       }
     } catch (err) {
@@ -130,9 +130,9 @@ async function tiPiace() {
         const randomIndex = Math.floor(Math.random() * data.data.length);
         const element = data.data[randomIndex];
         albumRandom.innerHTML += ` <div  class="col generi-box">
-                    <img src=${element.album.cover_medium} width="200" alt="Cover Album">
-                    <p class="title">${element.album.title}</p>
-                    <p class="desc">${element.artist.name}</p>
+                    <a href="./album.html?id=${element.album.id}"><img src=${element.album.cover_medium} width="200" alt="Cover Album"></a>
+                    <a href="./album.html?id=${element.album.id}"><p class="title">${element.album.title}</p></a>
+                    <a href="./artist.html?id=${element.artist.id}"><p class="desc">${element.artist.name}</p></a>
                   </div>`;
       }
     } catch (err) {
